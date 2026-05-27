@@ -398,6 +398,25 @@ body {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
+/* 动画效果 */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 /* 分销区域 */
 .referral-section {
   background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
@@ -750,82 +769,30 @@ body {
   
   <!-- 扫码支付页面 -->
   <div class="product-card" id="qrcode-card" style="display: none;">
-    <div class="product-icon">💳</div>
-    <h1 class="product-title">扫码支付</h1>
-    <p class="product-subtitle">使用微信扫描二维码支付</p>
-    
-    <!-- 订单信息 -->
-    <div class="order-info active" id="qrcode-order-info">
-      <div class="order-item">
-        <span>订单编号：</span>
-        <span id="qrcode-order-id">-</span>
-      </div>
-      <div class="order-item">
-        <span>订单金额：</span>
-        <span style="color: #667eea; font-weight: bold;">¥99.00</span>
-      </div>
+    <!-- 简洁的标题 -->
+    <div style="text-align: center; padding: 20px 0 15px;">
+      <div style="font-size: 20px; color: #667eea; font-weight: 700; margin-bottom: 10px;">请扫码支付</div>
+      <div style="font-size: 48px; font-weight: 900; color: #25d366;">¥99.00</div>
     </div>
     
-    <!-- 二维码提示 -->
-    <div style="text-align: center; padding: 20px 0;">
-      <div style="font-size: 48px; margin-bottom: 15px;">📱</div>
-      <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 10px;">请使用微信扫描下方二维码</p>
-      <p style="color: #667eea; font-size: 14px; font-weight: 600;">支付 ¥99.00</p>
+    <!-- 简洁的收款码 -->
+    <div style="margin: 15px; text-align: center;">
+      <img src="https://gh-proxy.org/https://raw.githubusercontent.com/bang359/pay/main/wx.jpg" alt="微信收款码" style="width: 100%; max-width: 280px; height: auto; display: block; margin: 0 auto; border-radius: 12px;">
+      <div style="color: rgba(255,255,255,0.8); font-size: 16px; font-weight: 600; margin-top: 15px;">👆 长按识别二维码支付</div>
     </div>
     
-    <!-- 微信收款码 -->
-    <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); border-radius: 24px; padding: 35px 25px; margin: 20px 15px; text-align: center; box-shadow: 0 20px 60px rgba(17, 153, 142, 0.3); position: relative; overflow: hidden;">
-      <!-- 装饰元素 -->
-      <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-      <div style="position: absolute; bottom: -20px; left: -20px; width: 60px; height: 60px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
-      
-      <!-- 产品名称 -->
-      <div style="font-size: 20px; color: #fff; font-weight: 700; margin-bottom: 25px; text-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-        🔒 电视家定制版
-      </div>
-      
-      <!-- 白色卡片 -->
-      <div style="background: #fff; border-radius: 20px; padding: 30px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
-        <!-- 价格 -->
-        <div style="font-size: 42px; color: #333; font-weight: 800; margin-bottom: 20px; font-family: 'Arial', sans-serif;">
-          ¥ 99
-          <div style="font-size: 14px; color: #999; font-weight: normal; margin-top: 5px;">限时特惠</div>
-        </div>
-        
-        <!-- 二维码 -->
-        <div style="background: #fafafa; border-radius: 16px; padding: 25px; display: inline-block; margin-bottom: 15px;">
-          <img src="https://gh-proxy.org/https://raw.githubusercontent.com/bang359/pay/main/wx.jpg" alt="微信收款码" style="width: 220px; height: 220px; margin: 0 auto; display: block; border-radius: 8px;">
-        </div>
-        
-        <!-- 提示 -->
-        <div style="font-size: 16px; color: #666; font-weight: 600; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-          <span style="font-size: 24px;">👆</span>
-          <span>长按识别二维码支付</span>
-        </div>
-        
-        <!-- 支付方式 -->
-        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #eee; display: flex; align-items: center; justify-content: center; gap: 10px;">
-          <span style="font-size: 24px;">💳</span>
-          <span style="font-size: 14px; color: #999;">微信安全支付</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 提示 -->
-    <div class="notice">
-      <div class="notice-title">💡 温馨提示</div>
-      <div class="notice-item">支付完成后，点击下方"已完成支付"按钮</div>
-      <div class="notice-item">如果支付遇到问题，请联系客服</div>
-      <div class="notice-item">支付金额：¥99.00</div>
+    <!-- 简洁提示 -->
+    <div style="text-align: center; padding: 15px 0; color: rgba(255,255,255,0.7); font-size: 14px;">
+      支付完成后点击下方按钮
     </div>
     
     <!-- 已支付按钮 -->
-    <button class="pay-button" id="confirm-pay-button" onclick="confirmPayment()">
+    <button class="pay-button" id="confirm-pay-button" onclick="confirmPayment()" style="margin: 10px 15px;">
       <span id="confirm-text">✅ 我已支付完成</span>
     </button>
     
     <!-- 返回按钮 -->
-    <button class="back-button" onclick="goBack()">
+    <button class="back-button" onclick="goBack()" style="margin: 10px 15px;">
       ← 返回购买页面
     </button>
   </div>
@@ -1096,4 +1063,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
-                                                                    </html>
+</html>
