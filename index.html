@@ -695,12 +695,12 @@ body {
 
 <!-- 主容器 -->
 <div class="container">
-  <!-- 产品卡片 -->
+  <!-- 产品卡片（合并支付前/后） -->
   <div class="product-card" id="product-card">
     <div class="product-icon">📺</div>
     <h1 class="product-title">电视家定制版</h1>
     <p class="product-subtitle">专属定制版 · 永久会员</p>
-    
+
     <!-- 价格 -->
     <div class="price-section">
       <div class="price-label">限时特惠价</div>
@@ -708,7 +708,7 @@ body {
         ¥99<span class="price-unit"> / 永久</span>
       </div>
     </div>
-    
+
     <!-- 功能特点 -->
     <div class="features">
       <div class="feature-item">
@@ -718,7 +718,7 @@ body {
           <div class="feature-desc">央视、卫视、地方台全覆盖</div>
         </div>
       </div>
-      
+
       <div class="feature-item">
         <div class="feature-icon">🎬</div>
         <div>
@@ -726,7 +726,7 @@ body {
           <div class="feature-desc">电影、电视剧、综艺同步更新</div>
         </div>
       </div>
-      
+
       <div class="feature-item">
         <div class="feature-icon">🚫</div>
         <div>
@@ -734,7 +734,7 @@ body {
           <div class="feature-desc">无弹窗、无插播广告</div>
         </div>
       </div>
-      
+
       <div class="feature-item">
         <div class="feature-icon">🔄</div>
         <div>
@@ -742,7 +742,7 @@ body {
           <div class="feature-desc">直播源持续更新维护</div>
         </div>
       </div>
-      
+
       <div class="feature-item">
         <div class="feature-icon">📱</div>
         <div>
@@ -751,7 +751,7 @@ body {
         </div>
       </div>
     </div>
-    
+
     <!-- 购买须知 -->
     <div class="notice">
       <div class="notice-title">📋 购买须知</div>
@@ -760,58 +760,14 @@ body {
       <div class="notice-item">直播源长期维护更新</div>
       <div class="notice-item">客服工作时间：9:00-22:00</div>
     </div>
-    
-    <!-- 支付按钮 -->
-    <button class="pay-button" id="pay-button" onclick="showQRCode()">
-      <span id="pay-text">立即购买 · ¥99</span>
-    </button>
-  </div>
-  
-  <!-- 扫码支付页面 -->
-  <div class="product-card" id="qrcode-card" style="display: none;">
-    <!-- 简洁的标题 -->
-    <div style="text-align: center; padding: 20px 0 15px;">
-      <div style="font-size: 20px; color: #667eea; font-weight: 700; margin-bottom: 10px;">请扫码支付</div>
-      <div style="font-size: 48px; font-weight: 900; color: #25d366;">¥99.00</div>
-    </div>
-    
-    <!-- 简洁的收款码 -->
-    <div style="margin: 15px; text-align: center;">
+
+    <!-- 微信收款码 -->
+    <div style="text-align: center; padding: 15px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;">
+      <div style="font-size: 18px; color: #667eea; font-weight: 700; margin-bottom: 6px;">请扫码支付 ¥99</div>
       <img src="https://gh-proxy.org/https://raw.githubusercontent.com/bang359/pay/main/wx.jpg" alt="微信收款码" style="width: 100%; max-width: 280px; height: auto; display: block; margin: 0 auto; border-radius: 12px;">
-      <div style="color: rgba(255,255,255,0.8); font-size: 16px; font-weight: 600; margin-top: 15px;">👆 长按识别二维码支付</div>
+      <div style="color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; margin-top: 12px;">👆 长按识别二维码支付</div>
     </div>
-    
-    <!-- 简洁提示 -->
-    <div style="text-align: center; padding: 15px 0; color: rgba(255,255,255,0.7); font-size: 14px;">
-      支付完成后点击下方按钮
-    </div>
-    
-    <!-- 已支付按钮 -->
-    <button class="pay-button" id="confirm-pay-button" onclick="confirmPayment()" style="margin: 10px 15px;">
-      <span id="confirm-text">✅ 我已支付完成</span>
-    </button>
-    
-    <!-- 返回按钮 -->
-    <button class="back-button" onclick="goBack()" style="margin: 10px 15px;">
-      ← 返回购买页面
-    </button>
-  </div>
-  
-  <!-- 支付状态 -->
-  <div class="pay-status" id="pay-status">
-    <div class="status-icon">✓</div>
-    <h2 class="status-title">支付成功！</h2>
-    <p class="status-desc">请联系客服获取提取码</p>
-    
-    <!-- 客服联系方式 -->
-    <div class="contact-section">
-      <div class="contact-label">💬 联系客服</div>
-      <div class="contact-info">
-        <div>微信：<span style="color: #667eea; font-weight: 600;">tvhome-support</span></div>
-        <div style="margin-top: 8px; font-size: 14px; color: rgba(255,255,255,0.7);">支付完成后发送支付截图获取提取码</div>
-      </div>
-    </div>
-    
+
     <!-- 提取码输入 -->
     <div class="extract-section" id="extract-section">
       <div class="extract-label">🔑 输入提取码</div>
@@ -822,7 +778,7 @@ body {
         <span id="extract-text">验证提取码</span>
       </button>
     </div>
-    
+
     <!-- 下载链接（默认隐藏） -->
     <div class="download-section" id="download-section">
       <div class="download-label">📥 软件下载</div>
@@ -832,6 +788,15 @@ body {
       <a href="https://www.lequxiang.com.cn/down.php/9068d297dac87aa5b6daa2d629ad5de4.apk" class="download-btn" target="_blank" style="margin-top: 12px; background: linear-gradient(135deg, #00d4ff, #0066ff); box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);">
         📺 下载海信电视版
       </a>
+    </div>
+
+    <!-- 客服联系方式 -->
+    <div class="contact-section">
+      <div class="contact-label">💬 联系客服</div>
+      <div class="contact-info">
+        <div>抖音：<span style="color: #667eea; font-weight: 600;">91004095419</span></div>
+        <div style="margin-top: 8px; font-size: 14px; color: rgba(255,255,255,0.7);">支付完成后发送支付截图获取提取码</div>
+      </div>
     </div>
   </div>
   
@@ -954,82 +919,40 @@ function generateActivationCode() {
 }
 
 // 显示二维码支付页面
-function showQRCode() {
-  // 生成订单号
-  const orderId = generateOrderId();
-  const orderTime = new Date().toLocaleString('zh-CN');
-  
-  // 保存订单信息
-  localStorage.setItem('orderId', orderId);
-  localStorage.setItem('orderTime', orderTime);
-  
-  // 显示二维码页面
-  document.getElementById('product-card').style.display = 'none';
-  document.getElementById('qrcode-card').style.display = 'block';
-  
-  // 显示订单信息
-  document.getElementById('qrcode-order-id').textContent = orderId;
-}
-
-// 确认支付
-function confirmPayment() {
-  const confirmBtn = document.getElementById('confirm-pay-button');
-  const confirmText = document.getElementById('confirm-text');
-  
-  // 显示加载状态
-  confirmBtn.disabled = true;
-  confirmText.innerHTML = '<span class="loading"></span> 验证中...';
-  
-  // 模拟验证过程
-  setTimeout(() => {
-    // 隐藏二维码页面，显示支付成功页面（需要输入提取码）
-    document.getElementById('qrcode-card').style.display = 'none';
-    document.getElementById('pay-status').classList.add('active');
-    
-    // 重置按钮状态
-    confirmBtn.disabled = false;
-    confirmText.textContent = '✅ 我已支付完成';
-  }, 1500);
-}
+// （已删除：合并后不需要切换页面）
 
 // 验证提取码
 function verifyExtractCode() {
   const extractBtn = document.getElementById('extract-button');
   const extractText = document.getElementById('extract-text');
   const extractCode = document.getElementById('extract-code').value.trim();
-  
+
   // 检查是否输入了提取码
   if (!extractCode) {
     alert('请输入提取码');
     return;
   }
-  
+
   // 验证提取码是否正确（统一提取码：9527）
   if (extractCode !== '9527') {
     alert('提取码错误，请联系客服获取正确提取码');
     return;
   }
-  
+
   // 显示加载状态
   extractBtn.disabled = true;
   extractText.innerHTML = '<span class="loading"></span> 验证中...';
-  
+
   // 模拟验证过程
   setTimeout(() => {
     // 隐藏提取码输入区域，显示下载链接
     document.getElementById('extract-section').style.display = 'none';
     document.getElementById('download-section').style.display = 'block';
-    
+
     // 重置按钮状态
     extractBtn.disabled = false;
     extractText.textContent = '验证提取码';
   }, 1500);
-}
-
-// 返回购买页面
-function goBack() {
-  document.getElementById('qrcode-card').style.display = 'none';
-  document.getElementById('product-card').style.display = 'block';
 }
 
 // 复制激活码
@@ -1049,18 +972,16 @@ function copyCode() {
   });
 }
 
-// 页面加载时检查订单状态
+// 页面加载时初始化
 document.addEventListener('DOMContentLoaded', () => {
-  // 默认显示购买页面（product-card显示，qrcode-card和pay-status隐藏）
-  document.getElementById('product-card').style.display = 'block';
-  document.getElementById('qrcode-card').style.display = 'none';
-  document.getElementById('pay-status').classList.remove('active');
-  
-  // 强制清除之前的订单记录，确保每次打开都是购买页面
+  // 合并后默认只显示单一页面，无需切换
+  // 提取码输入区显示，下载链接默认隐藏（由 verifyExtractCode 控制）
+
+  // 清除之前的订单记录
   localStorage.removeItem('orderId');
   localStorage.removeItem('activationCode');
   localStorage.removeItem('orderTime');
-  
+
   // 初始化分销功能
   initReferral();
 });
